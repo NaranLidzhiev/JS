@@ -12,10 +12,12 @@
 <body>
 
     <script>
-        if (window.confirm("Push OK or Cancel")) {
-            console.log("You push OK")
-        }   else{
-            console.log("You push Cancel")
+        var UName = window.prompt("Как вас зовут?", "NoName");
+        if (UName == null) {
+            alert("Почему ты данные не вводишь уебище")
+        }
+        else {
+            document.write("Привет, " + UName)
         }
     </script>
 </body>
