@@ -1,17 +1,48 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="utf-8">
-<title>Событие load</title>
-<script>
-  window.addEventListener("load", function(){
-    let w = screen.width;
-    let h = screen.height;
-    document.getElementById("si").innerHTML = w+" x "+h;
-  })
-</script>
-</head>
-<body>
-  Размер экрана - <span id="si"></span>
-</body>
-</html>
+  <!DOCTYPE html>
+  <html lang="ru">
+  <head>
+  <meta charset="utf-8">
+  <title>Событие load</title>
+  <script>
+
+  window.addEventListener("load", tim);
+    function tim()
+    {
+      let den = new Date();
+      let mes = new Date();
+      let god = new Date();
+      let mon = ""
+      let arr=["января", "февраля", "марта", "апреля", "мая", "июня",
+    "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+    for (let i = 0; i < 12; i++){
+      if (mes.getMonth() == i){
+        mon = arr[i];
+        break;
+      }
+    }
+    document.getElementById("god").innerHTML=den.getDate()+" "+mon+" "+god.getFullYear()+" года";
+
+    let hours = new Date();
+    let minutes = new Date();
+    let seconds = new Date();
+    let m = ""+minutes.getMinutes();
+    if (m.length == 1){
+      m = "0"+m;
+    }
+    let s = ""+seconds.getSeconds();
+    if (s.length ==1){
+      s = "0"+s;
+    }
+
+    
+  
+    document.getElementById("min").innerHTML= hours.getHours() +" "+m+" "+s;
+    window.setTimeout(tim, 1000);
+  }
+  </script>
+  </head>
+  <body>
+    <p id="god"></p>
+    <p id="min"></p>
+  </body>
+  </html>
