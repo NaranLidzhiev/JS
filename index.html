@@ -7,31 +7,28 @@
     #flo {width: 200px;}
   </style>
   <script>
-    window.addEventListener("load", function(){
-      document.getElementById("flo").addEventListener("click", tra);
-    })
-    let i = 1;
-
-      function tra(){
-      transition = "width 1s"
-      
-      if (i == 1){
-        console.log("wtf bro");
-          document.getElementById("flo").style.transition = "width 1s";
-          document.getElementById("flo").style.width = "500px";
-          i = 2;
-      } else{
-          console.log("damn")
-          document.getElementById("flo").style.transition = "width 1s";
-          document.getElementById("flo").style.width = "200px";
-          i = 1;
-        }
-        return false;
+  window.addEventListener("load", function(){
+    document.getElementById("pic").addEventListener("click", function(){
+      if (event.target.tagName=="INPUT")
+      {
+        let a = event.target.id;
+        document.getElementById("im").src="img/"+a+".jpg";
+        odcument.getElementById("im").style.border="1px solid #000000";
       }
+    });
+  });
 
   </script>
   </head>
   <body>
-    <a href="#"><img id="flo" src="img/flower.jpg" alt="Фото"></a>
+    <div id="pic">
+      <input type="button" value="Кошка" id="cat">
+      <input type="button" value="Собака" id="dog">
+      <input type="button" value="Хорек" id="fre">
+      <input type="button" value="Шиншилла" id="chin">
+      <input type="button" value="Хомяк" id="hams">
+      <br><br>
+      <img id="im" src="img/dog.jpg" alt="Фото">
+      </div>
   </body>
   </html>
