@@ -3,32 +3,45 @@
   <head>
   <meta charset="utf-8">
   <title>Событие load</title>
-  <style>
-    #flo {width: 200px;}
-  </style>
   <script>
-  window.addEventListener("load", function(){
-    document.getElementById("pic").addEventListener("click", function(){
-      if (event.target.tagName=="INPUT")
-      {
-        let a = event.target.id;
-        document.getElementById("im").src="img/"+a+".jpg";
-        odcument.getElementById("im").style.border="1px solid #000000";
-      }
+    window.addEventListener("load", function(){
+     document.getElementById("nz").addEventListener("click", nz);
+     document.getElementById("vp").addEventListener("click", vp);
     });
-  });
-
+     let i = 0;
+     function nz(){
+      if(i>0)
+      {
+        i--;
+        document.getElementById("photo").src="img/"+i+".jpg";
+      }
+      else{
+        i=8;
+        document.getElementById("photo").src="img/"+i+".jpg";
+      }
+      return false;
+     }
+     function vp(){
+      if(i<8){
+        i++;
+        document.getElementById("photo").src="img/"+i+".jpg";
+      }else{
+        i=0;
+        document.getElementById("photo").src="img/"+i+".jpg";
+      }
+      return false;
+     }
   </script>
   </head>
   <body>
-    <div id="pic">
-      <input type="button" value="Кошка" id="cat">
-      <input type="button" value="Собака" id="dog">
-      <input type="button" value="Хорек" id="fre">
-      <input type="button" value="Шиншилла" id="chin">
-      <input type="button" value="Хомяк" id="hams">
-      <br><br>
-      <img id="im" src="img/dog.jpg" alt="Фото">
-      </div>
+      <table>
+      <tr><td>
+    <a id="nz" href="#"><img src="img/nz.png" alt="Назад"></a></td>
+    <td>
+    <img id="photo" src="img/0.jpg" alt="Фото"></td>
+    <td>
+    <a id="vp" href="#"><img src="img/vp.png"
+    alt="Вперед"></a></td></tr>
+</table>
   </body>
   </html>
