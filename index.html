@@ -3,45 +3,22 @@
   <head>
   <meta charset="utf-8">
   <title>Событие load</title>
+  <style>
+    .inp {background: #FFFFFF; border: 1px solid #000000;}
+  </style>
   <script>
-    window.addEventListener("load", function(){
-     document.getElementById("nz").addEventListener("click", nz);
-     document.getElementById("vp").addEventListener("click", vp);
+   window.addEventListener("load", function(){
+    document.getElementById("ship").addEventListener("mouseover", ()=>{
+      document.getElementById("ship").src = "img/ship_c.jpg";
     });
-     let i = 0;
-     function nz(){
-      if(i>0)
-      {
-        i--;
-        document.getElementById("photo").src="img/"+i+".jpg";
-      }
-      else{
-        i=8;
-        document.getElementById("photo").src="img/"+i+".jpg";
-      }
-      return false;
-     }
-     function vp(){
-      if(i<8){
-        i++;
-        document.getElementById("photo").src="img/"+i+".jpg";
-      }else{
-        i=0;
-        document.getElementById("photo").src="img/"+i+".jpg";
-      }
-      return false;
-     }
+    document.getElementById("ship").addEventListener("mouseout", ()=>{
+      console.log("FUCKOFF");
+      document.getElementById("ship").src = "img/ship_b.jpg";
+    });
+   })
   </script>
   </head>
   <body>
-      <table>
-      <tr><td>
-    <a id="nz" href="#"><img src="img/nz.png" alt="Назад"></a></td>
-    <td>
-    <img id="photo" src="img/0.jpg" alt="Фото"></td>
-    <td>
-    <a id="vp" href="#"><img src="img/vp.png"
-    alt="Вперед"></a></td></tr>
-</table>
+    <img src="img/ship_b.jpg" alt="ship_b" id="ship">
   </body>
   </html>
