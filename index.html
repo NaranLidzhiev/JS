@@ -4,21 +4,19 @@
   <meta charset="utf-8">
   <title>Событие load</title>
   <style>
-    .inp {background: #FFFFFF; border: 1px solid #000000;}
+    #ran {width: 500px; position:absolute; left: 0px; margin-top: 250px;}
+    #air {opacity: 0;}
   </style>
   <script>
-   window.addEventListener("load", function(){
-    document.getElementById("ship").addEventListener("mouseover", ()=>{
-      document.getElementById("ship").src = "img/ship_c.jpg";
-    });
-    document.getElementById("ship").addEventListener("mouseout", ()=>{
-      console.log("FUCKOFF");
-      document.getElementById("ship").src = "img/ship_b.jpg";
-    });
-   })
+    window.addEventListener("load", function(){
+      document.getElementById("ran").addEventListener("mousemove", function(){
+        document.getElementById("air").style.opacity = this.value;
+      })
+    })
   </script>
   </head>
   <body>
-    <img src="img/ship_b.jpg" alt="ship_b" id="ship">
+    <img src="img/air.jpg" alt="air" id="air">
+    <input type="range" min="0" max="1" step="0.01" value="0" id="ran">
   </body>
   </html>
